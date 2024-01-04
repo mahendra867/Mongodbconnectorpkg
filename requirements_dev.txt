@@ -3,14 +3,14 @@ pymongo[srv]
 dnspython
 pandas
 numpy
-ensure
+ensure 
 
 
 # dev requirements -
 
-pytest==7.1.3
-tox==3.25.1
-black==22.8.0
+pytest==7.1.3 # it is used to test the different test cases whatever we are going to write inside the unit, integrating testing files and that for testing the developing environment
+tox==3.25.1 # By using the file which is tox.ini we are going to test our code in different different environment
+black==22.8.0 # and this black and flake are lenting tool , lets say we are going to write the python code without following some sort of protocols for writing code and suppose lets say if we are writing the for loop code and we are not giving 4 spaces which we did not make indentation for the FOR loop, so if we are not following the indentation  this Lenting tool witll throw warning and it will tell that we are following the protocol and we have something mentioned mistake  in  our code , so this lenting tool tell us these all things
 flake8==5.0.4
 mypy==0.971
 

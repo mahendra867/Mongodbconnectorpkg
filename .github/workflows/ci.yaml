@@ -1,0 +1,40 @@
+# this ci.yaml file means continous integration .yaml file and this ci.yaml file is related to continous integration , so we are going to integrate our python code of package  over github and github is providing the service which is called github action , so by using this github action commands if we integrate our python package code with github so immediately i can check all the test cases whether my pyhton package code is working fine or not and this github action commands are auto regenrated everything by google so we need  not to remember just google it
+
+name: Python application # here we can write any name so simpliy i given the python application
+
+on:
+  push:
+    branches: [ "main" ] # here iam pushing my python package code to the main barnch 
+    paths-ignore:
+        - 'README.md'  
+  pull_request:
+    branches: [ "main" ]
+    paths-ignore:
+        - 'README.md'  
+
+
+permissions:
+  contents: read
+
+jobs:  # here iam going to perform jobs  below 
+  build:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]  # iam using the os as ubantu,windows  
+        python-version: ["3.8", "3.9"]  # so we have 2 python version environments which are 3.8,3.9, so there are total 4 combiantion which are 2 os  and 2 python version iam going to check my code of python package of mongodb connect for 4 times  that means in different different environment with different version 
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: | # and then iam going to run the below commands 
+        python -m pip install --upgrade pip
+        pip install flake8 pytest tox tox-gh-actions
+        pip install -r requirements.txt
+    - name: Test with tox
+      run: tox # and here finally i will run the tox.ini file which performs the testing in my  local environment 

@@ -1,0 +1,53 @@
+# This workflow will upload a Python Package using Twine when a release is created
+# For more information see: https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+
+# Many time whatever the configuration that iam going to write in mlops or devops i will use this yaml file to write the configuration, its human readable, the configuration is  easy to read  
+
+name: Upload Python Package
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:    # here job configuration performs deploying our python package 
+  deploy:
+
+    runs-on: ubuntu-latest  # and this configuratio runs helps us to run our deployed package by ubantu machine  which is provided by github action
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.8'
+    - name: Install dependencies   
+      run: |                        # here we are going to run the package by following below commands  like python -m pip install --upgrade pip   this commands helps us to upgrad the pip, pip install flake8 pytest   this command install flake which is used for code formating or which is lenting tool and pytest module get installed which  tests our written python code in mongidb src file and then by following the below 2 commands we are going to install the requirements , build
+        python -m pip install --upgrade pip    
+        pip install flake8 pytest     
+        pip install -r requirements.txt
+        pip install build
+    - name: Lint with flake8
+      run: |  # and i have discussed what does below lines do and its importance in the tox.ini file, 
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with pytest
+      run: |
+        pytest -v    
+    - name: Build package  # and then we build the python package  and then we run the pythn package which we built
+      run: python -m build
+    - name: Publish package
+      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+      with:
+        user: __token__  # here we nedd to configure something that i provide the steps in the below line
+        password: ${{ secrets.PYPI_API_TOKEN }} # here they are going to collect the secrete pypi token from pipy repostiory , so for getting the screte pipy token first we need to login to the pipy application if we search pipy in google then after done with login/register then click on account settings and then create a new API Token by click on Add API Token -> Then give the name of the token name as Mongodb database connectorand then choose scope as Entire Account and then click on create API Token and then we will get one token do copy that Token id and go to github and choose our package repository ->click on settings-> go to security section-> click on Action-> Here we need to add our generated  Token which we generated in PIPY repository and the generated token is consider as an Screte varaible and we need to add this generated Token or secrete token in the action ->click on new repository secrete there paste the secrete key which we copied from pipy repostory and paste it in secrete section adn give the secrete name which we mention in this github generated template which consist of configuration of python package and then name of the key is  PYPI_API_TOKEN and then click on create then we will get one secrete token repostory 
