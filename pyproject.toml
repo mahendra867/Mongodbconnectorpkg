@@ -1,10 +1,8 @@
-# it is being used for configuration the python project it is a alternative of the setup.cfg file. its containts configuration related to the build system such as the build tool used package name version author license and dependencies
-# so it is basically a meta data for building my python project and the below configuration we can get in google if we type pyproject.toml there we can copy past this configuration 
-[build-system]  # so this build-system is a tag inside this tag or under this tag we can find the given below information or which i written information below this tag 
+[build-system]  
 requires = ['setuptools>=42.0', "wheel"]
 build-backend = "setuptools.build_meta"  
 
-[tool.pytest.ini_options] # and this tool.pytest.ini_options is a tag inside this tag or below this tag i written my own configuration , so the below meta data is visual in my python package , so i can mention the below configuration either inside my setup.cfg file or in this file which is pyproject.cfg file  
+[tool.pytest.ini_options] 
 testpaths = [
     "tests"
     ]
