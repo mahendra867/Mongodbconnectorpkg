@@ -1,17 +1,6 @@
 from setuptools import setup, find_packages # from setuptool module iam going to import setup method or fucntion which we have defined inside this setuptool module and also find_package , and this setup methode we can get this code in setup.p
 from typing import List
 
-HYPEN_E_DOT='-e .'
-def get_requirement(file_path:str)->List[str]: # i have defined 1 function named as  get_requirement and which that fucntion is collecting all the requirements_dev.txt file content in the form of list 
-    requirements = [] # here i have initilized the empty list
-    with open(file_path) as f: # and iam going to open the file which is requirements_dev.txt
-        requirements=f.readlines() # iam going to read the requirements_dev.txt
-        requirements=[req.replace("\n","")for req in requirements] # and after reading the requirements_dev.txt file content in sequence iam going to save in requirements and which is line of code is list comprehension
-
-        if HYPEN_E_DOT in requirements:
-            requirements.remove(HYPEN_E_DOT) # and here we are going to remove the -e  from the list which has requirements varaible 
-    return requirements # and finally we are going to return the requirements varaible which contains the requirements_dev.txt file content
-
 with open('README.md', 'r', encoding='utf-8') as f:
     long_description = f.read()     # here iam going to open readme.md file  and read the long_description 
    
@@ -36,5 +25,5 @@ setup(
     },
     package_dir={"": "src"}, # by this line we can get to know where is my package present , so its telling that my package is present inside my SRC folder which is mongodbconnecto
     packages=find_packages(where="src"),
-    install_requires=get_requirement("./requirements_dev.txt") # here iam calling the function get_requirement with its paramter as ./requirements_dev.txt  and we wrote ./ this means we are reading requirements_dev.txt  in linux syatem which is in vscode so in order to read requirements_dev.txt  current workspace  i need to write ./ by that we can able to read the file of linux system we are reading the requirements_dev.txt list which is in linux terminal
+    # install_requires=get_requirement("./requirements_dev.txt") # here iam calling the function get_requirement with its paramter as ./requirements_dev.txt  and we wrote ./ this means we are reading requirements_dev.txt  in linux syatem which is in vscode so in order to read requirements_dev.txt  current workspace  i need to write ./ by that we can able to read the file of linux system we are reading the requirements_dev.txt list which is in linux terminal
     )
