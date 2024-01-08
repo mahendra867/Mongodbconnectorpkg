@@ -67,3 +67,5 @@ class mongodb_operation: # here i have created a class and given named as monogd
         collection.insert_many(datajson)
 
 # till here we done with writing the logic of inserting either single or many or bulk records inside our class now we need to call class through object for executing the logic that we created inside the class
+
+# here Mongodb_crud.py consist of the code which is related to the mongodb_database conenction so we can add the functionalities like the
