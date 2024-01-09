@@ -26,4 +26,5 @@ setup(
     package_dir={"": "src"}, # by this line we can get to know where is my package present , so its telling that my package is present inside my SRC folder which is mongodbconnecto
     packages=find_packages(where="src"),
     # install_requires=get_requirement("./requirements_dev.txt") # here iam calling the function get_requirement with its paramter as ./requirements_dev.txt  and we wrote ./ this means we are reading requirements_dev.txt  in linux syatem which is in vscode so in order to read requirements_dev.txt  current workspace  i need to write ./ by that we can able to read the file of linux system we are reading the requirements_dev.txt list which is in linux terminal
+    install_requires=["pymongo","pymongo[srv]","dnspython","pandas","numpy","ensure","pytest"] # this statement helps us intsall this libraries when we import this package Monogdb_database_automation in anaconda notebook it will throw error if these package are not installed in the anaconda by user rather than installing these libraries by user it would be better to install this libraries when we import this mongodbdatabase_connection package
     )
