@@ -7,7 +7,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
 
 __version__ = "0.0.5"
 REPO_NAME = "Mongodbconnectorpkg" # here we need to give the repository name which our packgae files and folders and its related python code present and we need to give repository name which we created in github 
-PKG_NAME= "MongoDB_database_Automation" # we need to give the package name which i given as mongodb-connector so by this name we can find our package that we uploaded in pipy
+PKG_NAME= "MongoDB_database_Automate" # we need to give the package name which i given as mongodb-connector so by this name we can find our package that we uploaded in pipy
 AUTHOR_USER_NAME = "Mahendra10" # # here we need to give the name of the author who is going to develop this package
 AUTHOR_EMAIL = "mahendramahesh2001@gmail.com" # here we need to give the email id of the author 
 
