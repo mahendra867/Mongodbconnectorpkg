@@ -10,9 +10,9 @@ list_of_files = [
    f"src/{package_name}/mongo_crud.py", 
    "tests/__init__.py",
    "tests/unit/__init__.py",
-   "tests/unit/unit.py", # here in this file iam going to write all my test cases of unit testing and unit means individual component so we are testing the individual component, and in this unit.py iam going to write the unit testing code 
+   "tests/unit/test_unit.py", # here in this file iam going to write all my test cases of unit testing and unit means individual component so we are testing the individual component, and in this unit.py iam going to write the unit testing code 
    "tests/integration/__init__.py",
-   "tests/integration/int.py",# here inside this int.py file iam going to write all the testcases of integrating testing, and in this int.py iam going to write the integrating testing code 
+   "tests/integration/test_int.py",# here inside this int.py file iam going to write all the testcases of integrating testing, and in this int.py iam going to write the integrating testing code 
    "init_setup.sh", # this init_setup.sh is shell script basically iam going to write the linux commands whatever iam running in the terminal individually so i will mention the linux commands in unified way inside this shellscript and then i can run this init_setup.sh file on top of the terminal , so instead of writing individual linux commands on top of the terminal , i will give all the linux commands inside this init_setup.sh file , by just 1 command we can execute this init_setup.sh file so which ever the linux commands we mention inside this init_setup.sh file those  all linux commands get executed   
    "requirements.txt",  # it is used for production enivronment , so iam going to mention the libraries which are used for production environment
    "requirements_dev.txt", # it used for local environemnt or developing environment , because in devloping environment testing is required, lets say iam developing a code or project or product so for that i need to test the product, and from the user side the testing is not required , so whatever the libraies and whatever testing we are going to use in requirements_dev.txt just used for development environment, so finally iam going to keep all the libraries which are required to developing the product of developing environment 

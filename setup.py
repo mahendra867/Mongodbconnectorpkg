@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
     long_description = f.read()     # here iam going to open readme.md file  and read the long_description 
    
 
-__version__ = "0.0.3"
+__version__ = "0.0.4"
 REPO_NAME = "Mongodbconnectorpkg" # here we need to give the repository name which our packgae files and folders and its related python code present and we need to give repository name which we created in github 
 PKG_NAME= "MongoDB_Database_Automation" # we need to give the package name which i given as mongodb-connector so by this name we can find our package that we uploaded in pipy
 AUTHOR_USER_NAME = "Mahendra10" # # here we need to give the name of the author who is going to develop this package
